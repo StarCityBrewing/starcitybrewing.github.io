@@ -116,10 +116,8 @@
     function ProcessData(data) {
       try {
         const jsonData = JSON.parse(data);
-        gtag('event', 'screen_view', {
-          'app_name': 'dynamic-redirect',
-          'page_code': window.location.search,
-          'url': jsonData.RedirectURL
+        gtag('event', 'dynamic-redirect', {
+          'app_name': window.location.search + " - " +jsonData.RedirectURL
         });
         console.log('Processing JSON data:', jsonData);
 
